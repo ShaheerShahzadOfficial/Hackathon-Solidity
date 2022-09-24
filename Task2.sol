@@ -22,7 +22,6 @@ struct Patient {
      string Disease;
 } 
 
-    Patient[] public patient;
 mapping (address => Patient) public PatientMapping;
 
 
