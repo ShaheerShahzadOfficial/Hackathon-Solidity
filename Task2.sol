@@ -25,7 +25,6 @@ struct Patient {
     Patient[] public patient;
 mapping (address => Patient) public PatientMapping;
 
-mapping (address => Patient[] ) public PatientMap;
 
 function AddPatient(string calldata _PatientName,string calldata _Disease) public {
      PatientMapping[msg.sender].PatientAddress = msg.sender;
@@ -41,6 +40,10 @@ address patientAdd =  PatientMapping[_PatientAddress].PatientAddress ;
  string memory name =  PatientMapping[_PatientAddress].PatientName;
 string memory disease =  PatientMapping[_PatientAddress].Disease;
 return (name,patientAdd,disease);
+}
+
+function deletePatient (address _address) public {
+  delete PatientMapping[_address];
 }
 
 }
