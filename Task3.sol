@@ -39,7 +39,12 @@ function checkLocationOfParcel (uint PackageId) public view  returns (string mem
 
 
 function DeliveredParcel (uint PackageId) public   returns (string memory){
-   PackageMapping[PackageId].isDelivered = true ;
+   PackageMapping[PackageId].isDelivered = true;
+   
+   string memory deliveredAddress=  PackageMapping[PackageId].DeliveringAddress;
+
+       PackageMapping[PackageId].CurrentAddress = deliveredAddress;
+
    return("The Parcel Has Been Delivered");
 }
 
